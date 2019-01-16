@@ -56,9 +56,12 @@ header h2 {
 }
 
 .landing-page {
+  height: 100vh;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
+  background-color: black;
+  overflow: hidden;
 }
 
 .my-info {
@@ -71,9 +74,13 @@ header h2 {
   z-index: 2;
 }
 
-.sky-container {
+.space {
   grid-row: 1;
   grid-column: 1;
+}
+
+.highlight {
+  color: lightskyblue;
 }
 
 .my-info a,
@@ -93,9 +100,12 @@ h1 {
     padding-left: 15%;
     padding-right: 15%;
   }
-
   header nav {
     flex-flow: row nowrap;
+  }
+
+  .my-info h1 {
+    font-size: 2.5em;
   }
 
   header h2 {
