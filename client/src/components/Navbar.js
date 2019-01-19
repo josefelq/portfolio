@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import * as actions from "../actions";
 
 class Navbar extends Component {
   render() {
@@ -28,6 +31,7 @@ class Navbar extends Component {
               className="onoffswitch-checkbox"
               id="myonoffswitch"
               defaultChecked
+              onChange={this.handleChange.bind(this)}
             />
             <label className="onoffswitch-label" htmlFor="myonoffswitch">
               <span className="onoffswitch-inner" />
@@ -38,6 +42,13 @@ class Navbar extends Component {
       </header>
     );
   }
+
+  handleChange(event) {
+    this.props.changeLanguage();
+  }
 }
 
-export default Navbar;
+export default connect(
+  null,
+  actions
+)(Navbar);

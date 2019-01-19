@@ -37,8 +37,6 @@ main {
 
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 nav {
@@ -171,13 +169,13 @@ header h2 {
   box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-  content: "ES";
+  content: "EN";
   padding-left: 10px;
   background-color: #34a7c1;
   color: #ffffff;
 }
 .onoffswitch-inner:after {
-  content: "EN";
+  content: "ES";
   padding-right: 10px;
   background-color: #eeeeee;
   color: #999999;
