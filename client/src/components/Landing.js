@@ -18,7 +18,7 @@ const options = {
       type: "polygon",
       stroke: {
         width: 0,
-        color: "#000000"
+        color: "#ffffff"
       },
       polygon: {
         nb_sides: 5
@@ -52,7 +52,7 @@ const options = {
     line_linked: {
       enable: true,
       distance: 150,
-      color: "#ffffff",
+      color: "#000000",
       opacity: 0.4,
       width: 1
     },
@@ -124,7 +124,9 @@ class Landing extends Component {
             Colombia.
           </h1>
           <div className="center-align">
-            <Link to="/portfolio"> Check out my work </Link>
+            <Link to="/portfolio" className="work-btn">
+              Check out my work
+            </Link>
           </div>
         </div>
         <Particles params={options} className="space" />
