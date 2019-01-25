@@ -6,10 +6,10 @@ import { HELLO } from "../translations/hello";
 class Hello extends Component {
   render() {
     return (
-      <div className="my-info">
+      <div className="my-info center-text">
         <h1>
           {HELLO[this.props.language][0]}
-          <span className="highlight">Jose Felipe Quiroga</span>. <br />
+          <span className="highlight">José</span>. <br />
           {HELLO[this.props.language][1]}
         </h1>
         <div className="center-align">

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 import Hello from "./Hello";
 
@@ -14,6 +16,13 @@ class Landing extends Component {
       </main>
     );
   }
+
+  componentDidMount() {
+    this.props.changePath("/");
+  }
 }
 
-export default Landing;
+export default connect(
+  null,
+  actions
+)(Landing);

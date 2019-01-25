@@ -2,53 +2,88 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import * as actions from "../actions";
+import LanguageSwitch from "./LanguageSwitch";
+import { NAV } from "../translations/nav";
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { showLinks: false };
+  }
+
   render() {
+    let path = this.props.path;
     return (
       <header>
         <nav>
-          <h2 className="logo">
-            <Link to="/">L</Link>
-          </h2>
-          <ul>
-            <li />
+          <div className="mobile-options">
+            <h2 className="logo">
+              <Link to="/">JFQ</Link>
+            </h2>
+            <div
+              className="mobile-tab"
+              onClick={() => {
+                this.setState({ showLinks: !this.state.showLinks });
+              }}
+            >
+              <i
+                className={
+                  this.state.showLinks
+                    ? "fas fa-times fa-lg"
+                    : "fas fa-bars fa-lg"
+                }
+              />
+            </div>
+          </div>
+          <ul className={this.state.showLinks ? "show" : "hide"}>
             <li>
-              <Link to="/about">A</Link>
+              <Link
+                to="/about"
+                className={path === "/about" ? "highlight" : ""}
+                onClick={() => {
+                  this.setState({ showLinks: false });
+                }}
+              >
+                {NAV[this.props.language].about}
+              </Link>
             </li>
             <li>
-              <Link to="/portfolio">P</Link>
+              <Link
+                to="/portfolio"
+                className={path === "/portfolio" ? "highlight" : ""}
+                onClick={() => {
+                  this.setState({ showLinks: false });
+                }}
+              >
+                {NAV[this.props.language].work}
+              </Link>
             </li>
             <li>
-              <Link to="/contact">C</Link>
+              <Link
+                to="/contact"
+                className={path === "/contact" ? "highlight" : ""}
+                onClick={() => {
+                  this.setState({ showLinks: false });
+                }}
+              >
+                {NAV[this.props.language].contact}
+              </Link>
+            </li>
+            <li className="language-switch">
+              <LanguageSwitch />
             </li>
           </ul>
-          <div className="onoffswitch">
-            <input
-              type="checkbox"
-              name="onoffswitch"
-              className="onoffswitch-checkbox"
-              id="myonoffswitch"
-              defaultChecked
-              onChange={this.handleChange.bind(this)}
-            />
-            <label className="onoffswitch-label" htmlFor="myonoffswitch">
-              <span className="onoffswitch-inner" />
-              <span className="onoffswitch-switch" />
-            </label>
+          <div className="language-switch-phone">
+            <LanguageSwitch />
           </div>
         </nav>
       </header>
     );
   }
-
-  handleChange(event) {
-    this.props.changeLanguage();
-  }
 }
 
-export default connect(
-  null,
-  actions
-)(Navbar);
+function mapStateToProps({ language, path }) {
+  return { language, path };
+}
+
+export default connect(mapStateToProps)(Navbar);
