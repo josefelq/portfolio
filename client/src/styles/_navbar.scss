@@ -3,7 +3,7 @@ header {
   background: $primary-color;
   border-bottom-width: 3px;
   border-bottom-style: solid;
-  border-bottom-color: $highlight-color;
+  border-bottom-color: $contrast-color;
 }
 
 nav {
@@ -48,6 +48,9 @@ nav li > a:hover {
   color: $highlight-color;
 }
 
+.highlight {
+  color: $highlight-color;
+}
 .mobile-options {
   width: 100%;
   display: flex;

@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Tags from "./Tags";
+import Projects from "./Projects";
 
 import * as actions from "../actions";
 
 class Portfolio extends Component {
   render() {
-    return <main>Portfolio</main>;
+    return (
+      <div className="content">
+        <Tags />
+        <Projects />
+      </div>
+    );
   }
   componentDidMount() {
     this.props.changePath("/portfolio");

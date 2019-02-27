@@ -5,7 +5,7 @@ import * as actions from "../actions";
 
 class Contact extends Component {
   render() {
-    return <main>Contact</main>;
+    return <div className="content">Contact</div>;
   }
 
   componentDidMount() {

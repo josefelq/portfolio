@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import SkillChart from "./SkillChart";
 import * as actions from "../actions";
 import avatar from "../resources/avatar.png";
 
 class About extends Component {
   render() {
     return (
-      <main>
+      <div className="content">
         <div className="container">
           <h1>Who am I?</h1>
           <div className="info-face">
@@ -27,12 +26,7 @@ class About extends Component {
             </div>
           </div>
         </div>
-
-        <div className="container">
-          <h1>Skills</h1>
-          <SkillChart />
-        </div>
-      </main>
+      </div>
     );
   }
   componentDidMount() {

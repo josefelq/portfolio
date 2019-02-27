@@ -10,10 +10,10 @@ import { OPTIONS } from "../config/particle";
 class Landing extends Component {
   render() {
     return (
-      <main className="landing-page">
+      <div className="landing-page">
         <Hello />
         <Particles params={OPTIONS} className="space" />
-      </main>
+      </div>
     );
   }
 

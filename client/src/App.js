@@ -7,6 +7,7 @@ import Portfolio from "./components/Portfolio";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
+import ProjectPage from "./components/ProjectPage";
 
 class App extends Component {
   render() {
@@ -14,13 +15,20 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
-          <Switch>
-            <Route path="/contact" component={Contact} exact />
-            <Route path="/portfolio" component={Portfolio} exact />
-            <Route path="/about" component={About} exact />
-            <Route path="/" component={Landing} exact />
-            <Route component={NotFound} />
-          </Switch>
+          <main>
+            <Switch>
+              <Route path="/contact" component={Contact} exact />
+              <Route
+                path="/portfolio/:projectname"
+                component={ProjectPage}
+                exact
+              />
+              <Route path="/portfolio" component={Portfolio} exact />
+              <Route path="/about" component={About} exact />
+              <Route path="/" component={Landing} exact />
+              <Route component={NotFound} />
+            </Switch>
+          </main>
         </div>
       </BrowserRouter>
     );

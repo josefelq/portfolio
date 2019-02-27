@@ -6,6 +6,7 @@ import * as actions from "../actions";
 
 class LanguageSwitch extends Component {
   render() {
+    console.log("rendering...");
     return (
       <div className="onoffswitch">
         <input
@@ -13,7 +14,7 @@ class LanguageSwitch extends Component {
           name="onoffswitch"
           className="onoffswitch-checkbox"
           id="myonoffswitch"
-          defaultChecked
+          checked={this.props.language === "en"}
           onChange={this.handleChange.bind(this)}
         />
         <label className="onoffswitch-label" htmlFor="myonoffswitch">
@@ -29,7 +30,11 @@ class LanguageSwitch extends Component {
   }
 }
 
+function mapStateToProps({ language }) {
+  return { language };
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(LanguageSwitch);
