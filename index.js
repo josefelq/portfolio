@@ -56,6 +56,8 @@ router.post("/send-email", (req, res, next) => {
   });
 });
 
+app.use(express.static("public"));
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   const path = require("path");

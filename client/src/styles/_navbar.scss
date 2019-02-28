@@ -1,9 +1,10 @@
 header {
-  display: flex;
+  flex-shrink: 0;
   background: $primary-color;
   border-bottom-width: 3px;
   border-bottom-style: solid;
   border-bottom-color: $contrast-color;
+  padding: 10px;
 }
 
 nav {
@@ -65,6 +66,15 @@ nav li > a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo a {
+  text-decoration: none;
+  color: $font-color;
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }
 
 @media screen and (min-width: 768px) {

@@ -12,10 +12,11 @@
   p {
     color: $font-color;
   }
+  animation: 1.3s ease-in-out 0s 1 slideInFromLeft;
 }
 
 .info > * {
-  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .face {
@@ -28,6 +29,8 @@
     width: 100%;
     height: auto;
   }
+
+  animation: 1.3s ease-in-out 0s 1 slideInFromRight;
 }
 
 .skill-chart {
@@ -42,6 +45,11 @@
 
 .skill img {
   max-width: 100%;
+}
+
+.resume-link {
+  text-decoration: none;
+  color: $highlight-color;
 }
 
 @media screen and (min-width: 768px) {

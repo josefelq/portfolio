@@ -5,8 +5,56 @@ $contrast-color: #9a031e;
 $last-color: #5f0f40;
 $font-color: #f4fffd;
 
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-500%);
+  }
+  50% {
+    transform: translateX(-500%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(500%);
+  }
+  50% {
+    transform: translateX(500%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes opacityIntoView {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flipInPlace {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: scaleY(-1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
 @import "base";
 @import "switch";
 @import "about";
 @import "navbar";
 @import "portfolio";
+@import "footer";
+@import "contact";

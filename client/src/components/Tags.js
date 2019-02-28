@@ -6,9 +6,10 @@ const ALL_TAGS = ["React", "Redux", "NodeJS", "MongoDB", "NextJS"];
 
 class Tags extends Component {
   render() {
+    const language = this.props.language;
     return (
       <div className="container">
-        <h1>Tags</h1>
+        <h1>{language === "en" ? "Tags" : "Etiquetas"}</h1>
         <ul className="tags">
           {ALL_TAGS.map(tag => {
             return (
@@ -33,8 +34,8 @@ class Tags extends Component {
   }
 }
 
-function mapStateToProps({ state }) {
-  return { state };
+function mapStateToProps({ state, language }) {
+  return { state, language };
 }
 
 export default connect(

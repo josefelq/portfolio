@@ -6,7 +6,6 @@ import * as actions from "../actions";
 
 class LanguageSwitch extends Component {
   render() {
-    console.log("rendering...");
     return (
       <div className="onoffswitch">
         <input

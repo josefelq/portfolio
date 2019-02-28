@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Landing from "./components/Landing";
 import Portfolio from "./components/Portfolio";
 import About from "./components/About";
@@ -28,6 +29,7 @@ class App extends Component {
               <Route path="/" component={Landing} exact />
               <Route component={NotFound} />
             </Switch>
+            <Footer />
           </main>
         </div>
       </BrowserRouter>

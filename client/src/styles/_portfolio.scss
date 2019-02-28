@@ -7,10 +7,11 @@
 
 .tag {
   margin: 5px;
-  padding: 20px;
+  padding: 15px;
   background-color: $primary-color;
   border-radius: 25px;
   font-size: 0.8em;
+  animation: 1.5s ease-in-out 0s 1 flipInPlace;
 }
 
 .tag:hover {
@@ -33,7 +34,8 @@
   grid-template-columns: 100%;
   grid-template-rows: 100%;
   margin-bottom: 5vh;
-  height: 30vh;
+  height: 40vh;
+  animation: 1.5s ease-in-out 0s 1 opacityIntoView;
   img {
     width: 100%;
     height: 100%;
@@ -85,25 +87,49 @@
 
   a {
     text-decoration: none;
-    background-color: DodgerBlue;
+    border-radius: 20px;
     color: white;
     padding: 1rem 2rem;
     cursor: pointer;
     i {
-      margin-left: 1rem;
+      padding-left: 1rem;
+    }
+
+    background-color: $primary-color;
+
+    border: 1px solid white;
+    border-bottom: 3px solid white;
+
+    &:hover {
+      color: $highlight-color;
+      border: 1px solid $highlight-color;
+      border-bottom: 3px solid $highlight-color;
     }
   }
 }
 
 .carousel-container {
+  animation: 1.5s ease-in-out 0s 1 opacityIntoView;
   display: flex;
   justify-content: center;
+}
+
+.project-description {
+  animation: 1.5s ease-in-out 0s 1 opacityIntoView;
 }
 
 .project-title {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.code-link {
+  animation: 1.2s ease-in-out 0s 1 slideInFromLeft;
+}
+
+.website-link {
+  animation: 1.2s ease-in-out 0s 1 slideInFromRight;
 }
 
 @media screen and (min-width: 768px) {

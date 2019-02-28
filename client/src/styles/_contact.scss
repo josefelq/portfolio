@@ -1,0 +1,77 @@
+.contact-form {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+form {
+  flex: 1 0;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  animation: 1.3s ease-in-out 0s 1 slideInFromRight;
+}
+.form-row {
+  display: flex;
+  input,
+  textarea {
+    text-decoration: none;
+    color: $font-color;
+    border: 1px solid $font-color;
+    background-color: $primary-color;
+    padding: 1rem;
+    flex: 1;
+    margin-bottom: 2rem;
+  }
+}
+
+.message-box {
+  min-height: 30vh;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-button {
+  flex: 1 0;
+  color: $font-color;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 1em;
+  &:hover {
+    color: $highlight-color;
+    border: 1px solid $highlight-color;
+    border-bottom: 3px solid $highlight-color;
+  }
+  background-color: $primary-color;
+  border: 1px solid white;
+  border-bottom: 3px solid white;
+}
+
+.form-button-container {
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .form-button {
+    flex: 0;
+  }
+
+  .form-button-container {
+    justify-content: flex-end;
+  }
+}
+
+.not-found {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    border-bottom: 3px solid $contrast-color;
+    color: $font-color;
+    font-size: 3rem;
+  }
+}

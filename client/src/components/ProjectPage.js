@@ -32,13 +32,27 @@ class ProjectPage extends Component {
                 })}
               </Carousel>
             </div>
-            <p>{project.description[language]}</p>
+            <p className="project-description">
+              {project.description[language]}
+            </p>
             <div className="links">
-              <a href={project.website}>
-                Website
+              <a
+                href={project.code}
+                className="code-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source Code
                 <i className="fab fa-github" />
               </a>
-              <a href={project.code}>Github</a>
+              <a
+                href={project.website}
+                className="website-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Website
+              </a>
             </div>
           </div>
         </div>

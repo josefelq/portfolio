@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 
 class Project extends Component {
   render() {
-    console.log(this.props.history);
     return (
       <div
         className="project"
