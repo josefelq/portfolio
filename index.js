@@ -1,6 +1,5 @@
 const express = require("express"),
   app = express(),
-  router = express.Router(),
   nodeMailer = require("nodemailer"),
   bodyParser = require("body-parser"),
   PORT = process.env.PORT || 5000;
@@ -30,19 +29,22 @@ transporter.verify((error, success) => {
   }
 });
 
-router.post("/send-email", (req, res, next) => {
-  var name = req.body.name;
-  var email = req.body.email;
-  var message = req.body.message;
-  var content = `name: ${name} \n email: ${email} \n message: ${message} `;
+app.post("/send-email", (req, res, next) => {
+  const name = req.body.values.name;
+  const subject = req.body.values.subject;
+  const email = req.body.values.email;
+  const message = req.body.values.message;
+  const content = `name: ${name} \n email: ${email} \n message: ${message} `;
 
-  var mail = {
+  const mail = {
     from: name,
     to: "josefelipeq@live.com",
-    subject: "New Message from Contact Form",
+    subject: subject,
     text: content
   };
 
+  res.send(mail);
+  /*
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       res.json({
@@ -54,10 +56,10 @@ router.post("/send-email", (req, res, next) => {
       });
     }
   });
+  */
 });
 
 app.use(express.static("public"));
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   const path = require("path");

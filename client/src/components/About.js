@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
-import avatar from "../resources/avatar.png";
 import { ABOUT } from "../translations/about";
 
 class About extends Component {
@@ -26,7 +25,7 @@ class About extends Component {
               </p>
             </div>
             <div className="face">
-              <img src={avatar} alt="My face" />
+              <img src="/avatar.png" alt="My face" />
             </div>
           </div>
         </div>

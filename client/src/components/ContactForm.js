@@ -7,28 +7,28 @@ class ContactForm extends Component {
     const { handleSubmit } = this.props;
     const { language } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
-        <div className="form-row">
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <div className="form-row name-field">
           <Field
-            name="Name"
+            name="name"
             component="input"
             type="text"
             maxLength="50"
             placeholder={language === "en" ? "Name" : "Nombre"}
           />
         </div>
-        <div className="form-row">
+        <div className="form-row email-field">
           <Field
-            name="Email"
+            name="email"
             component="input"
             type="email"
             maxLength="50"
             placeholder={language === "en" ? "Email" : "Correo"}
           />
         </div>
-        <div className="form-row">
+        <div className="form-row subject-field">
           <Field
-            name="Subject"
+            name="subject"
             component="input"
             type="text"
             maxLength="50"
@@ -37,7 +37,7 @@ class ContactForm extends Component {
         </div>
         <div className="form-row message-box">
           <Field
-            name="Message"
+            name="message"
             component="textarea"
             type="text"
             maxLength="1000"

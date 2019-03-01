@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 
 import * as actions from "../actions";
 import ContactForm from "./ContactForm";
@@ -21,8 +22,14 @@ class Contact extends Component {
     );
   }
 
-  submit(values) {
-    console.log(values);
+  async submit(values) {
+    let response = await axios.post("/send-email", { values });
+    console.log(response);
+    if (response.statusText === "OK") {
+      // TODO: Show ok dialog
+    } else {
+      // TODO: Show Not OK dialog
+    }
   }
 
   componentDidMount() {
