@@ -4,6 +4,11 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   PORT = process.env.PORT || 5000;
 
+const http = require("http");
+setInterval(() => {
+  http.get("http://josefelipeq.com/");
+}, 300000);
+
 require("dotenv").config();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
