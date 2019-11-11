@@ -3,6 +3,7 @@ import { PROJECTS } from "../translations/projects";
 import { connect } from "react-redux";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { Link } from "react-router-dom";
 
 class ProjectPage extends Component {
   constructor(props) {
@@ -18,7 +19,11 @@ class ProjectPage extends Component {
         <div className="content">
           <div className="container">
             <div className="project-title">
+              <Link to="/portfolio">
+                <i>↩{this.props.language === "en" ? "Go back" : "Volver"}</i>
+              </Link>
               <h1>{project.name}</h1>
+              <div></div>
             </div>
 
             <div className="carousel-container">
