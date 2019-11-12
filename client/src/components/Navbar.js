@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { withRouter } from "react-router-dom";
+
 import LanguageSwitch from "./LanguageSwitch";
 import { NAV } from "../translations/nav";
 
@@ -12,7 +14,8 @@ class Navbar extends Component {
   }
 
   render() {
-    let path = this.props.path;
+    let path = this.props.location.pathname;
+
     if (path !== "/") {
       return (
         <header>
@@ -88,4 +91,4 @@ function mapStateToProps({ language, path }) {
   return { language, path };
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default withRouter(connect(mapStateToProps)(Navbar));

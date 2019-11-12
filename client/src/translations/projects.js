@@ -19,5 +19,23 @@ export const PROJECTS = [
     description: { en: "Hello", es: "Hola" },
     tags: ["Angular"],
     images: [{ src: "https://picsum.photos/1920/1080", alt: "Homepage" }]
+  },
+  {
+    name: "GanaSoft",
+    description: { en: "Hello", es: "Hola" },
+    tags: ["Angular"],
+    images: [{ src: "https://picsum.photos/1920/1080", alt: "Homepage" }]
+  },
+  {
+    name: "GanaSoft",
+    description: { en: "Hello", es: "Hola" },
+    tags: ["Angular"],
+    images: [{ src: "https://picsum.photos/1920/1080", alt: "Homepage" }]
+  },
+  {
+    name: "GanaSoft",
+    description: { en: "Hello", es: "Hola" },
+    tags: ["Angular"],
+    images: [{ src: "https://picsum.photos/1920/1080", alt: "Homepage" }]
   }
 ];

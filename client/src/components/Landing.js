@@ -16,13 +16,6 @@ class Landing extends Component {
       </div>
     );
   }
-
-  componentDidMount() {
-    this.props.changePath("/");
-  }
 }
 
-export default connect(
-  null,
-  actions
-)(Landing);
+export default connect(null, actions)(Landing);

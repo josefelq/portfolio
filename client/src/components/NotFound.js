@@ -14,16 +14,10 @@ class NotFound extends Component {
       </main>
     );
   }
-  componentDidMount() {
-    this.props.changePath("/notfound");
-  }
 }
 
 function mapStateToProps({ language }) {
   return { language };
 }
 
-export default connect(
-  mapStateToProps,
-  actions
-)(NotFound);
+export default connect(mapStateToProps, actions)(NotFound);

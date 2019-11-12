@@ -17,10 +17,10 @@ class ProjectPage extends Component {
     if (project) {
       return (
         <div className="content">
-          <div className="container">
+          <div style={{ marginBottom: "0", minHeight: "100%" }}>
             <div className="project-title">
               <Link to="/portfolio">
-                <i>↩{this.props.language === "en" ? "Go back" : "Volver"}</i>
+                <i>←{this.props.language === "en" ? "Go back" : "Volver"}</i>
               </Link>
               <h1>{project.name}</h1>
               <div></div>

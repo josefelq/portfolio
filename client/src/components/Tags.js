@@ -8,8 +8,16 @@ class Tags extends Component {
   render() {
     const language = this.props.language;
     return (
-      <div className="container">
-        <h1>{language === "en" ? "Tags" : "Etiquetas"}</h1>
+      <div style={{ marginTop: "4vh", marginBottom: "4vh" }}>
+        <h5
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "2vh"
+          }}
+        >
+          {language === "en" ? "Technologies" : "Tecnologías"}
+        </h5>
         <ul className="tags">
           {ALL_TAGS.map(tag => {
             return (
@@ -38,7 +46,4 @@ function mapStateToProps({ state, language }) {
   return { state, language };
 }
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Tags);
+export default connect(mapStateToProps, actions)(Tags);

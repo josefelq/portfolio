@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-
 import * as actions from "../actions";
 import ContactForm from "./ContactForm";
 
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { showThanks: false };
+  }
   render() {
     const language = this.props.language;
     return (
@@ -16,24 +19,28 @@ class Contact extends Component {
               ? "Interested? Let's talk."
               : "Interesad@? Hablemos."}
           </h1>
-          <ContactForm onSubmit={this.submit} />
+          <ContactForm handleSubmit={this.submit.bind(this)} />
+          <b style={{ display: "flex", justifyContent: "center" }}>
+            {this.state.showThanks
+              ? language === "en"
+                ? "Thank you! We'll be in contact very soon."
+                : "Gracias! Estaremos en contacto muy pronto."
+              : null}
+          </b>
         </div>
       </div>
     );
   }
 
-  async submit(values) {
-    let response = await axios.post("/send-email", { values });
-    console.log(response);
-    if (response.statusText === "OK") {
-      // TODO: Show ok dialog
-    } else {
-      // TODO: Show Not OK dialog
-    }
-  }
-
-  componentDidMount() {
-    this.props.changePath("/contact");
+  submit(values, reset) {
+    axios.post("/send-email", values).then(res => {
+      this.setState({ showThanks: true }, () => {
+        setTimeout(() => {
+          this.setState({ showThanks: false });
+        }, 5000);
+        reset();
+      });
+    });
   }
 }
 
@@ -41,7 +48,4 @@ function mapStateToProps({ language }) {
   return { language };
 }
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Contact);
+export default connect(mapStateToProps, actions)(Contact);

@@ -1,48 +1,81 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
 
 class ContactForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    };
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
   render() {
-    const { handleSubmit } = this.props;
     const { language } = this.props;
     return (
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          this.props.handleSubmit(this.state, () => {
+            this.setState({ name: "", email: "", subject: "", message: "" });
+          });
+        }}
+        autoComplete="off"
+      >
         <div className="form-row name-field">
-          <Field
+          <input
+            onChange={this.handleChange.bind(this)}
+            value={this.state.name}
+            required
             name="name"
-            component="input"
             type="text"
             maxLength="50"
             placeholder={language === "en" ? "Name" : "Nombre"}
           />
         </div>
         <div className="form-row email-field">
-          <Field
+          <input
+            onChange={this.handleChange.bind(this)}
+            value={this.state.email}
+            required
             name="email"
-            component="input"
             type="email"
             maxLength="50"
             placeholder={language === "en" ? "Email" : "Correo"}
           />
         </div>
         <div className="form-row subject-field">
-          <Field
+          <input
+            onChange={this.handleChange.bind(this)}
+            value={this.state.subject}
+            required
             name="subject"
-            component="input"
             type="text"
             maxLength="50"
             placeholder={language === "en" ? "Subject" : "Asunto"}
           />
         </div>
         <div className="form-row message-box">
-          <Field
+          <textarea
+            style={{ whiteSpace: "pre-line" }}
+            onChange={this.handleChange.bind(this)}
+            value={this.state.message}
+            rows="10"
+            cols="30"
+            required
             name="message"
-            component="textarea"
-            type="text"
+            type="textarea"
             maxLength="1000"
             placeholder={language === "en" ? "Message" : "Mensaje"}
-          />
+          ></textarea>
         </div>
         <div className="form-button-container">
           <button className="form-button" type="submit">
@@ -58,11 +91,4 @@ function mapStateToProps({ language }) {
   return { language };
 }
 
-ContactForm = connect(mapStateToProps)(ContactForm);
-
-ContactForm = reduxForm({
-  // a unique name for the form
-  form: "contact"
-})(ContactForm);
-
-export default ContactForm;
+export default connect(mapStateToProps)(ContactForm);

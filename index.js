@@ -13,55 +13,35 @@ require("dotenv").config();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const transporter = nodeMailer.createTransport({
-  host: "smtp-mail.outlook.com", // hostname
-  secureConnection: false, // TLS requires secureConnection to be false
-  port: 587, // port for secure SMTP
-  tls: {
-    ciphers: "SSLv3"
-  },
-  auth: {
-    user: "josefelipeq@live.com",
-    pass: "password"
-  }
-});
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take messages");
-  }
-});
-
 app.post("/send-email", (req, res, next) => {
-  const name = req.body.values.name;
-  const subject = req.body.values.subject;
-  const email = req.body.values.email;
-  const message = req.body.values.message;
-  const content = `name: ${name} \n email: ${email} \n message: ${message} `;
-
-  const mail = {
-    from: name,
-    to: "josefelipeq@live.com",
-    subject: subject,
-    text: content
-  };
-
-  res.send(mail);
-  /*
-  transporter.sendMail(mail, (err, data) => {
-    if (err) {
-      res.json({
-        msg: "fail"
-      });
-    } else {
-      res.json({
-        msg: "success"
-      });
+  let transporter = nodeMailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
     }
   });
-  */
+  let mailOptions = {
+    from: req.body.email,
+    to: "josefelipeq@gmail.com",
+    subject: req.body.subject,
+    html: `<p>
+    <b>NOMBRE: </b>${req.body.name}
+    <br/>
+    <b>EMAIL: </b>${req.body.email}
+    <br/>
+    <b>MENSAJE: </b> <br/> ${req.body.message.replace(/\n/g, "<br />")}
+    </p>`
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    res.send("OK");
+    console.log("Message %s sent: %s", info.messageId, info.response);
+  });
 });
 
 app.use(express.static("public"));

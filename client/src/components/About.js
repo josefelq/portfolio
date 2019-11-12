@@ -32,16 +32,10 @@ class About extends Component {
       </div>
     );
   }
-  componentDidMount() {
-    this.props.changePath("/about");
-  }
 }
 
 function mapStateToProps({ language }) {
   return { language };
 }
 
-export default connect(
-  mapStateToProps,
-  actions
-)(About);
+export default connect(mapStateToProps, actions)(About);

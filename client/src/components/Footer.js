@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+
+import { withRouter } from "react-router-dom";
 
 class Footer extends Component {
   render() {
-    if (this.props.path !== "/") {
+    if (this.props.location.pathname !== "/") {
       return (
         <div className="footer">
           <small>© {new Date().getFullYear()} José Felipe Quiroga</small>
@@ -13,8 +14,4 @@ class Footer extends Component {
   }
 }
 
-function mapStateToProps({ path }) {
-  return { path };
-}
-
-export default connect(mapStateToProps)(Footer);
+export default withRouter(Footer);
