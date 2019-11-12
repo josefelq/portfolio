@@ -17,12 +17,13 @@ app.post("/send-email", (req, res, next) => {
   let transporter = nodeMailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
-    secure: false,
+    secure: true,
     auth: {
       user: process.env.EMAIL,
       pass: process.env.PASSWORD
     }
   });
+
   let mailOptions = {
     to: "josefelipeq@live.com",
     subject: req.body.subject,
