@@ -25,7 +25,7 @@ app.post("/send-email", (req, res, next) => {
   });
 
   let mailOptions = {
-    to: "josefelipeq@live.com",
+    to: "josefelipeq@gmail.com",
     subject: req.body.subject,
     html: `<p>
     <b>NOMBRE: </b>${req.body.name}
