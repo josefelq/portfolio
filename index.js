@@ -11,6 +11,7 @@ setInterval(() => {
 
 require("dotenv").config();
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(bodyParser.json());
 
 app.post("/send-email", (req, res, next) => {
