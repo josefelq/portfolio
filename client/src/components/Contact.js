@@ -7,7 +7,7 @@ import ContactForm from "./ContactForm";
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = { showThanks: false };
+    this.state = { showThanks: false, allowSubmit: true };
   }
   render() {
     const language = this.props.language;
@@ -19,8 +19,11 @@ class Contact extends Component {
               ? "Interested? Let's talk."
               : "Interesad@? Hablemos."}
           </h1>
-          <ContactForm handleSubmit={this.submit.bind(this)} />
-          <b style={{ display: "flex", justifyContent: "center" }}>
+          <ContactForm
+            handleSubmit={this.submit.bind(this)}
+            allowSubmit={this.state.allowSubmit}
+          />
+          <b style={{ display: "flex", justifyContent: "center", margin: "0" }}>
             {this.state.showThanks
               ? language === "en"
                 ? "Thank you! We'll be in contact very soon."
@@ -33,14 +36,18 @@ class Contact extends Component {
   }
 
   submit(values, reset) {
-    axios.post("/send-email", values).then(res => {
-      this.setState({ showThanks: true }, () => {
-        setTimeout(() => {
-          this.setState({ showThanks: false });
-        }, 5000);
-        reset();
+    if (this.state.allowSubmit) {
+      this.setState({ allowSubmit: false }, () => {
+        axios.post("/send-email", values).then(res => {
+          this.setState({ showThanks: true, allowSubmit: true }, () => {
+            setTimeout(() => {
+              this.setState({ showThanks: false });
+            }, 5000);
+            reset();
+          });
+        });
       });
-    });
+    }
   }
 }
 

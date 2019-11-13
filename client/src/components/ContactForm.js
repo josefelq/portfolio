@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import LoaderSpinner from "./LoaderSpinner";
 
 class ContactForm extends Component {
   constructor(props) {
@@ -78,9 +79,16 @@ class ContactForm extends Component {
           ></textarea>
         </div>
         <div className="form-button-container">
-          <button className="form-button" type="submit">
-            {language === "en" ? "Submit" : "Enviar"}
-          </button>
+          {!this.props.allowSubmit ? (
+            <LoaderSpinner />
+          ) : (
+            <input
+              disabled={!this.props.allowSubmit}
+              className="form-button"
+              type="submit"
+              value={language === "en" ? "Submit" : "Enviar"}
+            />
+          )}
         </div>
       </form>
     );

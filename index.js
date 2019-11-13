@@ -16,9 +16,12 @@ app.use(bodyParser.json());
 
 app.post("/send-email", (req, res, next) => {
   let transporter = nodeMailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
+    host: "smtp-mail.outlook.com",
+    port: 587,
+    secureConnection: true,
+    tls: {
+      ciphers: "SSLv3"
+    },
     auth: {
       user: process.env.EMAIL,
       pass: process.env.PASSWORD
@@ -29,9 +32,11 @@ app.post("/send-email", (req, res, next) => {
     to: "josefelipeq@live.com",
     subject: req.body.subject,
     html: `<p>
-    <b>NOMBRE: </b>${req.body.name}
+    <b>Nombre: </b>${req.body.name}
     <br/>
-    <b>EMAIL: </b>${req.body.email}
+    <br/>
+    <b>Email: </b>${req.body.email}
+    <br/>
     <br/>
     <b>MENSAJE: </b> <br/> ${req.body.message.replace(/\n/g, "<br />")}
     </p>`
