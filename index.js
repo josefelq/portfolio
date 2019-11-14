@@ -29,16 +29,17 @@ app.post("/send-email", (req, res, next) => {
   });
 
   let mailOptions = {
+    from: "josefelipeq@live.com",
     to: "josefelipeq@live.com",
     subject: req.body.subject,
     html: `<p>
-    <b>Nombre: </b>${req.body.name}
+    <b>Nombre: <br/> </b>${req.body.name}
     <br/>
     <br/>
-    <b>Email: </b>${req.body.email}
+    <b>Email: </b> <br/>${req.body.email}
     <br/>
     <br/>
-    <b>MENSAJE: </b> <br/> ${req.body.message.replace(/\n/g, "<br />")}
+    <b>Mensaje: </b> <br/> ${req.body.message.replace(/\n/g, "<br />")}
     </p>`
   };
   transporter.sendMail(mailOptions, (error, info) => {
