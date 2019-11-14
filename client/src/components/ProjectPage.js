@@ -18,7 +18,7 @@ class ProjectPage extends Component {
       return (
         <div className="content">
           <div style={{ marginBottom: "0", minHeight: "100%" }}>
-            <div className="project-title">
+            <div className="project-title" style={{ marginBottom: "5vh" }}>
               <Link to="/portfolio">
                 <i>←{this.props.language === "en" ? "Go back" : "Volver"}</i>
               </Link>
@@ -37,17 +37,25 @@ class ProjectPage extends Component {
                 })}
               </Carousel>
             </div>
-            <p className="project-description">
+            <p
+              style={{
+                whiteSpace: "pre-wrap",
+                marginTop: "5vh",
+                marginBottom: "5vh"
+              }}
+              className="project-description"
+            >
               {project.description[language]}
             </p>
-            <div className="links">
+            <div className="links" style={{ marginBottom: "5vh" }}>
               <a
                 href={project.code}
                 className="code-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Source Code
+                {this.props.language === "en" ? "Source Code" : "Código Fuente"}
+
                 <i className="fab fa-github" />
               </a>
               <a
@@ -56,7 +64,7 @@ class ProjectPage extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Website
+                {this.props.language === "en" ? "Website" : "Pagina Web"}
               </a>
             </div>
           </div>

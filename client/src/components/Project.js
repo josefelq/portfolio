@@ -16,7 +16,9 @@ class Project extends Component {
         />
         <div>
           <div>
-            <h2>{this.props.project.name}</h2>
+            <h2 style={{ backgroundColor: "$primary-color" }}>
+              {this.props.project.name}
+            </h2>
           </div>
           <ul>
             {this.props.project.tags.map(tag => {

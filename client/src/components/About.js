@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import { ABOUT } from "../translations/about";
 
+import HojaDeVida from "../static/hojadevida.pdf";
+import Resume from "../static/resume.pdf";
+
 class About extends Component {
   render() {
     let language = this.props.language;
@@ -18,14 +21,18 @@ class About extends Component {
               <br />
               <p>
                 {ABOUT[language][3]}
-                <a href="/resume.pdf" download className="resume-link">
+                <a
+                  href={language === "en" ? Resume : HojaDeVida}
+                  download={language === "en" ? "Resume.pdf" : "HojaDeVida.pdf"}
+                  className="resume-link"
+                >
                   {ABOUT[language][4]}
                 </a>
                 .
               </p>
             </div>
             <div className="face">
-              <img src="/avatar.png" alt="My face" />
+              <img src="/avatar.jpg" alt="My face" />
             </div>
           </div>
         </div>
