@@ -18,7 +18,10 @@ class ProjectPage extends Component {
       return (
         <div className="content">
           <div style={{ marginBottom: "0", minHeight: "100%" }}>
-            <div className="project-title" style={{ marginBottom: "5vh" }}>
+            <div
+              className="project-title"
+              style={{ marginBottom: "5vh", marginTop: "3vh" }}
+            >
               <Link to="/portfolio">
                 <i>←{this.props.language === "en" ? "Go back" : "Volver"}</i>
               </Link>
@@ -47,26 +50,52 @@ class ProjectPage extends Component {
             >
               {project.description[language]}
             </p>
-            <div className="links" style={{ marginBottom: "5vh" }}>
-              <a
-                href={project.code}
-                className="code-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {this.props.language === "en" ? "Source Code" : "Código Fuente"}
+            {project.code ? (
+              <div className="links" style={{ marginBottom: "5vh" }}>
+                <a
+                  href={project.code}
+                  className="code-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {this.props.language === "en"
+                    ? "Source Code"
+                    : "Código Fuente"}
 
-                <i className="fab fa-github" />
-              </a>
-              <a
-                href={project.website}
-                className="website-link"
-                target="_blank"
-                rel="noopener noreferrer"
+                  <i className="fab fa-github" />
+                </a>
+                <a
+                  href={project.website}
+                  className="website-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {this.props.language === "en" ? "Website" : "Pagina Web"}
+                </a>
+              </div>
+            ) : (
+              <div
+                style={{
+                  marginBottom: "5vh",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
               >
-                {this.props.language === "en" ? "Website" : "Pagina Web"}
-              </a>
-            </div>
+                <div
+                  style={{
+                    backgroundColor: "#23272a",
+                    padding: "1rem",
+                    border: "1px solid white"
+                  }}
+                >
+                  {this.props.language === "en"
+                    ? "The source code for this project is private "
+                    : "El codigo para este proyecto es privado "}{" "}
+                  :(
+                </div>
+              </div>
+            )}
           </div>
         </div>
       );

@@ -33,7 +33,4 @@ function mapStateToProps({ language }) {
   return { language };
 }
 
-export default connect(
-  mapStateToProps,
-  actions
-)(LanguageSwitch);
+export default connect(mapStateToProps, actions)(LanguageSwitch);

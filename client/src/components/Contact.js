@@ -9,6 +9,7 @@ class Contact extends Component {
     super(props);
     this.state = { showThanks: false, allowSubmit: true };
   }
+
   render() {
     const language = this.props.language;
     return (

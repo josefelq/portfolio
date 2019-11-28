@@ -54,7 +54,7 @@ class Navbar extends Component {
               <li>
                 <Link
                   to="/portfolio"
-                  className={path === "/portfolio" ? "highlight" : ""}
+                  className={path.startsWith("/portfolio") ? "highlight" : ""}
                   onClick={() => {
                     this.setState({ showLinks: false });
                   }}

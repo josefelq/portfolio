@@ -70,7 +70,6 @@ class ContactForm extends Component {
             onChange={this.handleChange.bind(this)}
             value={this.state.message}
             rows="10"
-            cols="30"
             required
             name="message"
             type="textarea"

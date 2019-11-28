@@ -1,5 +1,24 @@
 export const PROJECTS = [
   {
+    name: "NeuroRadVis",
+
+    description: {
+      en:
+        "NeuroRadVis is a web based application that is currently being used in Hospital Militar located in Bogotá, Colombia. Its main objective is to help radiology instructors teach their students concepts, and topics more efficiently using real studies and samples.\n\nIn more detail, this web app provides: user creation and authentication with given roles (student and teacher), sample creation, sample exploration, student group creation and modification, challenge creation with all its funcionalities, such as: sending multiple answers to a specific challenge and checking instructor feedback for student users, while teachers can: review student answers and send feedback.\n\nThis project was my senior thesis from Universidad de los Andes, and is currently in the process of being published as an academic paper with myself as a collaborator.",
+      es:
+        "NeuroRadVis es una aplicación web que se está utilizando actualmente en el Hospital Militar ubicado en Bogotá, Colombia. Su objetivo principal es ayudar a los instructores de radiología a enseñar a sus estudiantes conceptos y temas de manera más eficiente utilizando estudios y muestras reales.\n\nMás detalladamente, esta aplicación web proporciona: creación y autenticación de usuarios con roles determinados (estudiante y maestro), creación de muestras, exploración de muestras, creación y modificación de grupos de estudiantes, creación de retos con todas sus funcionalidades, tales como: enviar múltiples respuestas a retos y revisar los comentarios del instructor, para los usuarios estudiantes, mientras que los instructores pueden: revisar las respuestas de los estudiantes y enviar comentarios.\n\nEste proyecto fue mi tesis de último año de la Universidad de los Andes, y actualmente está en proceso de ser publicado como un documento académico siendo yo un colaborador."
+    },
+    tags: ["React", "Firebase", "NodeJS", "MongoDB"],
+    website: "",
+    code: "",
+    images: [
+      { src: "/toxicity1.png", alt: "toxicity1" },
+      { src: "/toxicity2.png", alt: "toxicity2" },
+      { src: "/toxicity3.png", alt: "toxicity3" },
+      { src: "/toxicity4.png", alt: "toxicity4" }
+    ]
+  },
+  {
     name: "NoTiltZone",
     description: {
       en:

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-const ALL_TAGS = ["React", "Redux", "NodeJS", "MongoDB", "NextJS"];
+const ALL_TAGS = ["React", "Redux", "NodeJS", "MongoDB", "Firebase"];
 
 class Tags extends Component {
   render() {
