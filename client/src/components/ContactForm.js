@@ -77,10 +77,7 @@ class ContactForm extends Component {
             placeholder={language === "en" ? "Message" : "Mensaje"}
           ></textarea>
         </div>
-        <div
-          className="form-button-container"
-          style={{ display: "flex", justifyContent: "center" }}
-        >
+        <div className="form-button-container">
           {!this.props.allowSubmit ? (
             <LoaderSpinner />
           ) : (
